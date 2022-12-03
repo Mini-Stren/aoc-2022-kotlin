@@ -4,6 +4,8 @@ import readInputLines
 
 fun main() {
 
+    val day = 3
+
     fun part1(input: List<String>): Int {
         return input.sumOf { line ->
             line.chunked(line.length / 2, CharSequence::toSet)
@@ -21,13 +23,14 @@ fun main() {
         }.sumOf(Char::priority)
     }
 
-    val testInput = readInputLines("/day03/Day03_test")
-    check(part1(testInput) == 157)
-    check(part2(testInput) == 70)
+    val testInput = readInputLines("/day%02d/input_test".format(day))
+    val input = readInputLines("/day%02d/input".format(day))
 
-    val input = readInputLines("/day03/Day03")
-    println(part1(input))
-    println(part2(input))
+    check(part1(testInput) == 157)
+    println("part1 answer is ${part1(input)}")
+
+    check(part2(testInput) == 70)
+    println("part2 answer is ${part2(input)}")
 }
 
 private val Char.priority: Int

@@ -4,6 +4,8 @@ import readInputLines
 
 fun main() {
 
+    val day = 2
+
     fun part1(input: List<String>): Int {
         return Day02_part1.gameRounds(input).sumOf(Day02.GameRound::score)
     }
@@ -12,13 +14,14 @@ fun main() {
         return Day02_part2.gameRounds(input).sumOf(Day02.GameRound::score)
     }
 
-    val testInput = readInputLines("/day02/Day02_test")
-    check(part1(testInput) == 15)
-    check(part2(testInput) == 12)
+    val testInput = readInputLines("/day%02d/input_test".format(day))
+    val input = readInputLines("/day%02d/input".format(day))
 
-    val input = readInputLines("/day02/Day02")
-    println(part1(input))
-    println(part2(input))
+    check(part1(testInput) == 15)
+    println("part1 answer is ${part1(input)}")
+
+    check(part2(testInput) == 12)
+    println("part2 answer is ${part2(input)}")
 }
 
 object Day02 {
